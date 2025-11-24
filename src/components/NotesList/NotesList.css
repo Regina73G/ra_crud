@@ -1,0 +1,48 @@
+.card-list {
+  margin-bottom: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-list_header {
+  display: flex;
+}
+
+.card-list_title {
+  margin: 0 20px 20px 0;
+  font-weight: 400;
+}
+
+.card-list_refresh-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 100%;
+  background: url("/refresh.svg") no-repeat center;
+  background-color: transparent;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.card-list_refresh-btn.loading-list {
+  animation: rotate 1s linear infinite;
+}
+
+.card-list_body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.card-list_empty,
+.card-list_loading {
+  margin: 0 0 0 10px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
