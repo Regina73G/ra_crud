@@ -65,10 +65,10 @@ export default class NotesForm extends React.Component<NotesFormProps, NotesForm
       if (this.props.getNotes) {
         this.props.getNotes();
       }
-    } catch(error: any) {
+    } catch(error: unknown) {
       this.setState({
         loading: false, 
-        error: error.message || "An unknown error occurred.", //Произошла неизвестная ошибка
+        error: (error as Error).message || "An unknown error occurred.", //Произошла неизвестная ошибка
       }); 
     }
   }

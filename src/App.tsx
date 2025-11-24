@@ -44,10 +44,10 @@ export default class App extends React.Component<object, AppState> {
 
         const obj = await response.json();
         this.setState({notes: obj, loading: false});
-      } catch(error: any) {
+      } catch(error: unknown) {
         this.setState({
           loading: false, 
-          error: error.message || "An unknown error occurred.", //Произошла неизвестная ошибка
+          error: (error as Error).message || "An unknown error occurred.", //Произошла неизвестная ошибка
         });
       }
     }, 500);
@@ -68,10 +68,10 @@ export default class App extends React.Component<object, AppState> {
       }
 
       await this.getNotes();
-    } catch(error: any) {
+    } catch(error: unknown) {
       this.setState({
         loading: false, 
-        error: error.message || "An unknown error occurred.", //Произошла неизвестная ошибка
+        error: (error as Error).message || "An unknown error occurred.", //Произошла неизвестная ошибка
       });
     }
   }
